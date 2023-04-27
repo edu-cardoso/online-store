@@ -11,3 +11,10 @@ export async function fetchProductsByName(name) {
 
   return data
 }
+
+export async function fetchProductByID(id) {
+  const request = await fetch(`https://api.mercadolibre.com/items/${id}`);
+  const data = await request.json()
+
+  return data
+}

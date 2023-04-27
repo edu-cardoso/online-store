@@ -1,7 +1,14 @@
-import { useState, useEffect } from "react"
-import { fetchProductsByCategory, fetchProductsByName } from "../services/fetchAPI";
+import { useState, useEffect, useContext } from "react"
+import {
+  fetchProductsByCategory,
+  fetchProductsByName,
+  fetchProductByID,
+} from "../services/fetchAPI";
+import { Link } from 'react-router-dom';
+import { AppContext } from "../context/AppProvider";
 
 export default function ListProducts() {
+  const { cartItems, setcartItems } = useContext(AppContext);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [productName, setproductName] = useState('');
@@ -38,17 +45,33 @@ export default function ListProducts() {
     setproductName('');
   }
 
+  const addProductToCart = async (id) => {
+    const {title, price, thumbnail} = await fetchProductByID(id)
+    const productObj = {
+      id: id,
+      name: title,
+      price: price,
+      thumbnail: thumbnail,
+    }
+    setcartItems([
+      ...cartItems,
+      productObj
+    ])
+  }
+
   return (
     <div>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
       <header>
         <h1>Online Store</h1>
-        <button>
-          <span className="material-symbols-outlined">
-            shopping_cart
-          </span>
-        </button>
+        <Link to="/carrinho">
+          <button>
+            <span className="material-symbols-outlined">
+              shopping_cart
+            </span>
+          </button>
+        </Link>
       </header>
       <input
         value={productName}
@@ -78,7 +101,7 @@ export default function ListProducts() {
               <img src={thumbnail} alt="" />
               <p>{title}</p>
               <p>{price.toFixed(2)}</p>
-              <button>Comprar</button>
+              <button onClick={() => addProductToCart(id)}>Comprar</button>
             </div>
           ))}
       </div>
