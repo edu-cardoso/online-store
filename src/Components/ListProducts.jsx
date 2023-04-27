@@ -46,7 +46,7 @@ export default function ListProducts() {
   }
 
   const addProductToCart = async (id) => {
-    const {title, price, thumbnail} = await fetchProductByID(id)
+    const { title, price, thumbnail } = await fetchProductByID(id)
     const productObj = {
       id: id,
       name: title,
