@@ -52,11 +52,25 @@ export default function ListProducts() {
       name: title,
       price: price,
       thumbnail: thumbnail,
+      quantity: 1,
     }
     setcartItems([
       ...cartItems,
       productObj
     ])
+    addProductToLocalStorage();
+  }
+
+  const addProductToLocalStorage = () => {
+    const newSet = new Set();
+
+    const filterItem = cartItems.filter((item) => {
+      const duplicatedItem = newSet.has(item.id);
+      newSet.add(item.id);
+      return !duplicatedItem;
+    });
+
+    localStorage.setItem('cartItems', JSON.stringify(filterItem));
   }
 
   return (
