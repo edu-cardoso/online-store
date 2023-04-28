@@ -1,0 +1,103 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgb(255, 217, 0);
+}
+
+.headerContainer h3{
+  font-size: 2rem;
+  color: rgb(34, 34, 34);
+}
+
+.headerContainer span {
+  cursor: pointer;
+  color: rgb(34, 34, 34);
+}
+
+.cartBtn {
+  border: none;
+  background-color: transparent;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+}
+
+.cartBtn span{
+  font-size: 3.5rem;
+}
+
+.quantityOfItems {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background-color: rgb(255, 0, 0);
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.searchProduct  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 1.5rem;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  padding: .8rem;
+  background-color: aliceblue;
+}
+
+.searchProduct button, input {
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.categories {
+  position: absolute;
+  top: 0;
+  margin-top: 6.7rem;
+  left: -242px;
+  display: flex;
+  flex-direction: column;
+  transition: 600ms;
+  transition-property: left;
+}
+
+.categoriesOpen {
+  position: absolute;
+  top: 0;
+  margin-top: 6.7rem;
+  display: flex;
+  left: 0;
+  flex-direction: column;
+  transition: 600ms;
+  transition-property: left;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+
+.categories button, .categoriesOpen button  {
+  padding: 1.5rem;
+  text-align: start;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+
+
+

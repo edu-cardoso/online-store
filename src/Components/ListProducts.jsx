@@ -6,6 +6,7 @@ import {
 } from "../services/fetchAPI";
 import { Link } from 'react-router-dom';
 import { AppContext } from "../context/AppProvider";
+import styles from '../styles/ListProducts.module.css';
 
 export default function ListProducts() {
   const { cartItems, setcartItems } = useContext(AppContext);
@@ -13,6 +14,7 @@ export default function ListProducts() {
   const [products, setProducts] = useState([]);
   const [productName, setproductName] = useState('');
   const [isLoading, setisLoading] = useState(false);
+  const [isOpen, setisOpen] = useState(true);
 
   useEffect(() => {
     async function getCategories() {
@@ -73,32 +75,50 @@ export default function ListProducts() {
     localStorage.setItem('cartItems', JSON.stringify(filterItem));
   }
 
+  const openCategories = () => {
+    isOpen ? setisOpen(false) : setisOpen(true)
+  }
+
+  const cartLength = JSON.parse(localStorage.getItem('cartItems')) || []
+
   return (
-    <div>
+    <div className={styles.ListProducts}>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-      <header>
-        <h1>Online Store</h1>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+      <header className={styles.headerContainer}>
+        <span className="material-symbols-outlined" onClick={() => openCategories()}>
+          view_cozy
+        </span>
+        <h3>Online Store</h3>
         <Link to="/carrinho">
-          <button>
+          <button className={styles.cartBtn}>
+            <div className={styles.quantityOfItems}>
+              {cartLength.length}
+            </div>
             <span className="material-symbols-outlined">
               shopping_cart
             </span>
           </button>
         </Link>
       </header>
-      <input
-        value={productName}
-        onChange={onInputChange}
-        type="text"
-        placeholder="Buscar Produto"
-      />
-      <button onClick={() => getProductsByName()}>
-        <span className="material-symbols-outlined">
-          search
-        </span>
-      </button>
-      <div>
+      <div className={styles.searchContainer}>
+        <div className={styles.searchProduct}>
+          <input
+            value={productName}
+            onChange={onInputChange}
+            type="text"
+            placeholder="Buscar produto"
+          />
+          <button onClick={() => getProductsByName()}>
+            <span className="material-symbols-outlined">
+              search
+            </span>
+          </button>
+        </div>
+      </div>
+      <div className={isOpen ? styles.categories : styles.categoriesOpen}>
         {categories.map(({ id, name }) => (
           <button
             key={id}
