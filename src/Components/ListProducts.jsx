@@ -128,14 +128,24 @@ export default function ListProducts() {
           </button>
         ))}
       </div>
-      <div>
-        {isLoading ? <p>Carregando...</p> :
+      <div className={styles.productsContainer}>
+        {isLoading ? <p className={styles.loading}>Carregando...</p> :
           products.map(({ id, title, thumbnail, price }) => (
-            <div key={id}>
+            <div key={id} className={styles.products}>
               <img src={thumbnail} alt="" />
-              <p>{title}</p>
-              <p>{price.toFixed(2)}</p>
-              <button onClick={() => addProductToCart(id)}>Comprar</button>
+              <div className={styles.productInfo}>
+                <p>{title}</p>
+                <p className={styles.productPrice}>
+                  <span>R$</span>
+                  {price.toFixed(2)}
+                </p>
+                <button 
+                  className={styles.buyBtn}
+                  onClick={() => addProductToCart(id)}
+                >
+                  Comprar
+                </button>
+              </div>
             </div>
           ))}
       </div>
