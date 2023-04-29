@@ -61,19 +61,6 @@ export default function ListProducts() {
       ...cartItems,
       productObj
     ])
-    addProductToLocalStorage();
-  }
-
-  const addProductToLocalStorage = () => {
-    const newSet = new Set();
-
-    const filterItem = cartItems.filter((item) => {
-      const duplicatedItem = newSet.has(item.id);
-      newSet.add(item.id);
-      return !duplicatedItem;
-    });
-
-    localStorage.setItem('cartItems', JSON.stringify(filterItem));
   }
 
   const openCategories = () => {
@@ -126,7 +113,9 @@ export default function ListProducts() {
         {isLoading ? <p className={styles.loading}>Carregando...</p> :
           products.map(({ id, title, thumbnail, price }) => (
             <div key={id} className={styles.products}>
-              <img src={thumbnail} alt="" />
+              <Link to={`/product/${id}`}>
+                <img src={thumbnail} alt="" />
+              </Link>
               <div className={styles.productInfo}>
                 <p className={styles.productTitle}>{title}</p>
                 <p className={styles.productPrice}>

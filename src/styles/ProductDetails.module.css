@@ -1,0 +1,42 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgb(255, 217, 0);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgb(34, 34, 34);
+}
+
+.headerContainer span {
+  cursor: pointer;
+  color: rgb(34, 34, 34);
+}
+
+.cartBtn {
+  border: none;
+  background-color: transparent;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+}
+
+.cartBtn span {
+  font-size: 3.5rem;
+}
+
+.quantityOfItems {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 11px;
+  top: 8px;
+  background-color: rgb(255, 0, 0);
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 700;
+}
