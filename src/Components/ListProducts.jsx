@@ -128,7 +128,7 @@ export default function ListProducts() {
             <div key={id} className={styles.products}>
               <img src={thumbnail} alt="" />
               <div className={styles.productInfo}>
-                <p>{title}</p>
+                <p className={styles.productTitle}>{title}</p>
                 <p className={styles.productPrice}>
                   <span>R$</span>
                   {price.toFixed(2)}

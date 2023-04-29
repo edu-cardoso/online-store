@@ -45,6 +45,7 @@
   display: flex;
   justify-content: center;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .searchProduct {
@@ -62,10 +63,17 @@
 .searchProduct button,
 input {
   font-size: 1.6rem;
-  cursor: pointer;
   border: none;
   outline: none;
   background-color: transparent;
+}
+
+.searchProduct input {
+  width: 90%;
+}
+
+.searchProduct button {
+  cursor: pointer;
 }
 
 .categories {
@@ -122,11 +130,12 @@ input {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: 1px solid rgb(219, 219, 219);
   background-color: white;
+  transition: 0.35s;
 }
 
 .products img {
-  max-width: 9rem;
-  max-height: 9rem;
+  max-width: 13rem;
+  max-height: 16rem;
 }
 
 .productPrice {
@@ -134,6 +143,16 @@ input {
   font-weight: 500;
   margin: 1.5rem 0;
   color: rgb(20, 0, 202);
+}
+
+.productTitle {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .productPrice span {
@@ -145,6 +164,7 @@ input {
 .loading {
   margin: 2rem 0;
   font-size: 1.6rem;
+  text-align: center;
 }
 
 .productInfo {
@@ -163,4 +183,83 @@ input {
   font-weight: 500;
   font-size: 1.6rem;
   background-color: rgb(0, 136, 129);
+  transition: 0.2s;
+}
+
+@media (min-width: 500px) {
+  .products img {
+    width: 15rem;
+  }
+  .productInfo {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .headerContainer {
+    padding: 2.5rem;
+  }
+  .headerContainer span {
+    font-size: 3rem;
+  }
+  .quantityOfItems {
+    right: 20px;
+    top: 18px;
+  }
+  .categories {
+    margin-top: 8.1rem;
+  }
+  .categoriesOpen {
+    margin-top: 8.1rem;
+  }
+  .products {
+    height: 40.8rem;
+    flex-direction: column;
+  }
+
+  .products img {
+    width: 16rem;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .buyBtn {
+    margin: 0 auto;
+  }
+
+  .buyBtn:hover {
+    background-color: rgb(0, 175, 166);
+  }
+
+  .searchProduct {
+    width: 80%;
+  }
+
+  .productsContainer {
+    margin: 0 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, auto));
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .searchProduct {
+    width: 80rem;
+  }
+
+  .products:hover {
+    transform: scale(1.05);
+  }
+  .productsContainer {
+    margin: 0 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, auto));
+    gap: 3rem;
+  }
 }
