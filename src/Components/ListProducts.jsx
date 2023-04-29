@@ -82,18 +82,15 @@ export default function ListProducts() {
 
   return (
     <div className={styles.ListProducts}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
       <header className={styles.headerContainer}>
         <span className="material-symbols-outlined" onClick={() => openCategories()}>
           view_cozy
         </span>
-        <h3>Online Store</h3>
+        <p className={styles.title}>Online Store</p>
         <Link to="/carrinho">
           <button className={styles.cartBtn}>
-            {cartItems.length > 0 && <div className={styles.quantityOfItems}></div> }
+            {cartItems.length > 0 && <div className={styles.quantityOfItems}></div>}
             <span className="material-symbols-outlined">
               shopping_cart
             </span>
@@ -136,7 +133,7 @@ export default function ListProducts() {
                   <span>R$</span>
                   {price.toFixed(2)}
                 </p>
-                <button 
+                <button
                   className={styles.buyBtn}
                   onClick={() => addProductToCart(id)}
                 >

@@ -6,8 +6,9 @@
   background-color: rgb(255, 217, 0);
 }
 
-.headerContainer h3 {
+.title {
   font-size: 2rem;
+  font-weight: 500;
   color: rgb(34, 34, 34);
 }
 
@@ -87,8 +88,10 @@ input {
   flex-direction: column;
   transition: 600ms;
   transition-property: left;
-  height: calc( 100vh - 6.7rem);
+  height: calc(100vh - 6.7rem);
   overflow-y: scroll;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .categories button,
@@ -98,6 +101,7 @@ input {
   font-size: 1.6rem;
   border: none;
   cursor: pointer;
+  color: rgb(54, 54, 54);
 }
 
 .productsContainer {
@@ -117,6 +121,7 @@ input {
   margin-top: 3rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: 1px solid rgb(219, 219, 219);
+  background-color: white;
 }
 
 .products img {
@@ -131,10 +136,10 @@ input {
   color: rgb(20, 0, 202);
 }
 
-.productPrice span{
+.productPrice span {
   font-weight: 400;
   font-size: 1.8rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .loading {
