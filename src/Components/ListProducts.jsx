@@ -14,7 +14,7 @@ export default function ListProducts() {
   const [products, setProducts] = useState([]);
   const [productName, setproductName] = useState('');
   const [isLoading, setisLoading] = useState(false);
-  const [isOpen, setisOpen] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
 
   useEffect(() => {
     async function getCategories() {
@@ -28,6 +28,7 @@ export default function ListProducts() {
 
   const getProductsByCategory = async (id) => {
     setisLoading(true);
+    setisOpen(false)
     const data = await fetchProductsByCategory(id)
     setProducts(data.results);
     setisLoading(false);
@@ -76,10 +77,8 @@ export default function ListProducts() {
   }
 
   const openCategories = () => {
-    isOpen ? setisOpen(false) : setisOpen(true)
+    isOpen ? setisOpen(false) : setisOpen(true);
   }
-
-  const cartLength = JSON.parse(localStorage.getItem('cartItems')) || []
 
   return (
     <div className={styles.ListProducts}>
@@ -94,9 +93,7 @@ export default function ListProducts() {
         <h3>Online Store</h3>
         <Link to="/carrinho">
           <button className={styles.cartBtn}>
-            <div className={styles.quantityOfItems}>
-              {cartLength.length}
-            </div>
+            {cartItems.length > 0 && <div className={styles.quantityOfItems}></div> }
             <span className="material-symbols-outlined">
               shopping_cart
             </span>
@@ -118,7 +115,7 @@ export default function ListProducts() {
           </button>
         </div>
       </div>
-      <div className={isOpen ? styles.categories : styles.categoriesOpen}>
+      <div className={isOpen ? styles.categoriesOpen : styles.categories}>
         {categories.map(({ id, name }) => (
           <button
             key={id}
