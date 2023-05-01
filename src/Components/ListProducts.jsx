@@ -19,17 +19,17 @@ export default function ListProducts() {
   useEffect(() => {
     async function getCategories() {
       const request = await fetch('https://api.mercadolibre.com/sites/MLB/categories');
-      const data = await request.json()
+      const data = await request.json();
 
-      setCategories(data)
+      setCategories(data);
     }
-    getCategories()
+    getCategories();
   }, [])
 
   const getProductsByCategory = async (id) => {
     setisLoading(true);
-    setisOpen(false)
-    const data = await fetchProductsByCategory(id)
+    setisOpen(false);
+    const data = await fetchProductsByCategory(id);
     setProducts(data.results);
     setisLoading(false);
   }
@@ -41,8 +41,8 @@ export default function ListProducts() {
 
   const getProductsByName = async () => {
     setisLoading(true);
-    const name = productName
-    const data = await fetchProductsByName(name)
+    const name = productName;
+    const data = await fetchProductsByName(name);
     setProducts(data.results);
     setisLoading(false);
     setproductName('');

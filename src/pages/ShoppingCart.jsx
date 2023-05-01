@@ -12,9 +12,9 @@ export default function ShoppingCart() {
 
   useEffect(() => {
     const total = products.reduce((acc, curr) => {
-      return acc + (curr.price * curr.quantity)
+      return acc + (curr.price * curr.quantity);
     }, 0)
-    settotalPrice(total)
+    settotalPrice(total);
   }, [quantity, products])
 
   const removeProduct = (productID) => {
@@ -22,25 +22,25 @@ export default function ShoppingCart() {
       return id !== productID;
     });
 
-    setProducts(newProducts)
-    setcartItems(newProducts)
+    setProducts(newProducts);
+    setcartItems(newProducts);
     localStorage.setItem('cartItems', JSON.stringify(newProducts));
 
-    updateTotal(productID)
+    updateTotal(productID);
   }
 
   const updateTotal = (productID) => {
     const currProduct = filteredProducts.find(({ id }) => {
-      return id === productID
+      return id === productID;
     })
-    const updaTotalPrice = totalPrice - currProduct.price
-    settotalPrice(Number(updaTotalPrice.toFixed(2)))
+    const updaTotalPrice = totalPrice - currProduct.price;
+    settotalPrice(Number(updaTotalPrice.toFixed(2)));
   }
 
   const incrementQuantity = (id) => {
     const currProduct = products;
     currProduct.find((item) => item.id === id).quantity += 1;
-    setQuantity(quantity + 1)
+    setQuantity(quantity + 1);
     localStorage.setItem('cartItems', JSON.stringify(currProduct));
   };
 
@@ -48,7 +48,7 @@ export default function ShoppingCart() {
     const currProduct = products;
     if (currProduct.find((item) => item.id === id).quantity > 1) {
       currProduct.find((item) => item.id === id).quantity -= 1;
-      setQuantity(quantity - 1)
+      setQuantity(quantity - 1);
     }
     localStorage.setItem('cartItems', JSON.stringify(currProduct));
   };
@@ -68,7 +68,9 @@ export default function ShoppingCart() {
         {products.length === 0 ? <p className={styles.emptyCart}>Seu carrinho está vazio</p> :
           products.map(({ id, name, thumbnail, price, quantity }) => (
             <div key={id} className={styles.productItem}>
-              <img src={thumbnail} alt="" />
+              <Link to={`/product/${id}`}>
+                <img src={thumbnail} alt="" />
+              </Link>
               <div className={styles.productInfo}>
                 <p>{name}</p>
                 <p className={styles.productPrice}>
