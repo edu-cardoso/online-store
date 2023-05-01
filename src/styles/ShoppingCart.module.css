@@ -35,11 +35,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  margin-top: 3rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 1px solid rgb(219, 219, 219);
-  background-color: white;
+  border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+.productItem img {
+  mix-blend-mode: multiply;
 }
 
 .productInfo {
