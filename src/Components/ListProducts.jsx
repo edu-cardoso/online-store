@@ -67,6 +67,12 @@ export default function ListProducts() {
     isOpen ? setisOpen(false) : setisOpen(true);
   }
 
+  const handleKeyPress = (e) => {
+    if(e.key === 'Enter'){
+      getProductsByName();
+    }
+  }
+
   return (
     <div className={styles.ListProducts}>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -89,6 +95,7 @@ export default function ListProducts() {
           <input
             value={productName}
             onChange={onInputChange}
+            onKeyDown={handleKeyPress}
             type="text"
             placeholder="Buscar produto"
           />

@@ -100,6 +100,7 @@ input {
   overflow-y: scroll;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  z-index: 1;
 }
 
 .categories button,
@@ -191,6 +192,10 @@ input {
   .productInfo {
     font-size: 2.5rem;
   }
+  .products img {
+    width: 14rem;
+    height: 14rem;
+  }
 }
 
 @media (min-width: 700px) {
@@ -213,11 +218,6 @@ input {
   .products {
     height: 40.8rem;
     flex-direction: column;
-  }
-
-  .products img {
-    width: 17rem;
-    height: 16rem;
   }
 
   .productInfo {
