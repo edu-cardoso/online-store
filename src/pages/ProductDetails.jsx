@@ -22,7 +22,8 @@ export default function ProductDetails() {
         title,
         price,
         thumbnail,
-        attributes
+        attributes,
+        quantity: 1,
       }
 
       setProduct([productObj]);
@@ -32,16 +33,9 @@ export default function ProductDetails() {
   }, [])
 
   const addProductToCart = () => {
-    const productObj = {
-      id: product[0].id,
-      name: product[0].title,
-      price: product[0].price,
-      thumbnail: product[0].thumbnail,
-      quantity: 1,
-    }
     setcartItems([
       ...cartItems,
-      productObj
+      ...product
     ])
   }
 
@@ -66,26 +60,28 @@ export default function ProductDetails() {
               </button>
             </Link>
           </header>
-          <div className={styles.productDetailsContainer}>
-            <div className={styles.productDetailsTop}>
-              <p className={styles.productTitle}>{product[0].title}</p>
-              <img src={product[0].thumbnail} alt={product[0].title} />
-              <p className={styles.productPrice}>{`R$ ${(product[0].price).toFixed(2)}`}</p>
-              <button
-                className={styles.buyBtn}
-                onClick={() => addProductToCart()}
-              >
-                Comprar
-              </button>
+          <div className={styles.productContainer}>
+            <div className={styles.productDetailsContainer}>
+              <div className={styles.productDetailsTop}>
+                <p className={styles.productTitle}>{product[0].title}</p>
+                <img src={product[0].thumbnail} alt={product[0].title} />
+                <p className={styles.productPrice}>{`R$ ${(product[0].price).toFixed(2)}`}</p>
+                <button
+                  className={styles.buyBtn}
+                  onClick={() => addProductToCart()}
+                >
+                  Comprar
+                </button>
+              </div>
+              {product[0].attributes.map(({ id, name, value_name }) => (
+                <ul key={id}>
+                  <li>
+                    <h4>{name}</h4>
+                    <p className={styles.productDetailText}>{value_name}</p>
+                  </li>
+                </ul>
+              ))}
             </div>
-            {product[0].attributes.map(({ id, name, value_name }) => (
-              <ul key={id}>
-                <li>
-                  <h4>{name}</h4>
-                  <p className={styles.productDetailText}>{value_name}</p>
-                </li>
-              </ul>
-            ))}
           </div>
         </div>
       }

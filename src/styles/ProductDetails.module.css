@@ -1,4 +1,5 @@
 .productDetails {
+  height: 100%;
   background-color: white;
 }
 
@@ -48,7 +49,7 @@
 .productDetailsContainer {
   display: flex;
   flex-direction: column;
-  margin: 2rem 1.5rem;
+  margin: 2rem 1.5rem 0 1.5rem;
 }
 
 .productDetailsTop {
@@ -81,7 +82,7 @@
   font-size: 1.6rem;
   background-color: rgb(0, 136, 129);
   transition: 0.2s;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .productDetailsTop img {
@@ -90,10 +91,60 @@
 }
 
 .productDetailsContainer h4 {
-  margin: 1rem 0;
   font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.productDetailsContainer ul {
+  margin-bottom: 2rem;
 }
 
 .productDetailText {
   font-size: 1.4rem;
+}
+
+@media (min-width: 500px) {
+  .productDetailsTop img {
+    width: 20rem;
+  }
+  .buyBtn {
+    width: 30rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .productDetails {
+    background-color: rgb(255, 251, 244);
+  }
+
+  .headerContainer {
+    padding: 2.5rem;
+  }
+
+  .headerContainer span {
+    font-size: 3rem;
+  }
+
+  .quantityOfItems {
+    right: 20px;
+    top: 18px;
+  }
+
+  .productContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .productDetailsContainer {
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 10px;
+    margin: 2rem 2.5rem 1rem 2.5rem;
+    width: 64rem;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .buyBtn:hover {
+    background-color: rgb(0, 175, 166);
+  }
 }
