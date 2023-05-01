@@ -100,6 +100,7 @@
   font-size: 1.6rem;
   background-color: rgb(204, 0, 0);
   margin-top: 2rem;
+  transition: 0.2s;
 }
 
 .totalPrice {
@@ -110,4 +111,44 @@
 .totalPrice span {
   font-size: 2rem;
   font-weight: 500;
+}
+
+@media (min-width: 550px) {
+  .productItem img {
+    width: 15rem;
+  }
+
+  .productInfo {
+    font-size: 2.2rem;
+  }
+
+  .productPrice {
+    font-size: 2rem;
+  }
+  .removeBtn {
+    width: 60%;
+  }
+
+  .quantityControl {
+    width: 35%;
+  }
+
+  .removeBtn:hover {
+    background-color: rgb(228, 8, 0);
+  }
+}
+
+@media (min-width: 700px) {
+  .productsContainer {
+    width: 67rem;
+    margin: 0 auto;
+  }
+
+  .productItem img {
+    width: 18rem;
+  }
+
+  .productInfo {
+    font-size: 2.5rem;
+  }
 }
