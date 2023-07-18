@@ -1,5 +1,3 @@
-Deploy do projeto: https://edu-cardoso-online-store.netlify.app/
-
 ## Stack utilizada
 
 - HTML5
